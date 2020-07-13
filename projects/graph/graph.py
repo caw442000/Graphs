@@ -67,8 +67,35 @@ class Graph:
         beginning from starting_vertex.
         """
         pass  # TODO
+        # make a stack
+        s= Stack()
+        # push on our starting node
+        s.push(starting_vertex)
+​
+        # make a set to track if we've been here before
+        visited = set()
+​
+        # while our stack isn't empty
+        while s.size() > 0:
 
-    def dft_recursive(self, starting_vertex):
+​
+        ## pop off whatever's on top, this is current_node
+        v = s.pop()
+​
+        ## if we haven't visited this vertex before
+        if v  not in visited:
+        ### run function / print
+        print(v)
+        ### mark as visited
+        visited.add(v)
+        ### get its neighbors
+        neighbors = self.get_neighbors(v):
+        ### for each of the neighbors
+        for neighbor in neighbors:
+            s.push(neighbor)
+
+
+    def dft_recursive(self, starting_vertex, visited = None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
@@ -76,6 +103,24 @@ class Graph:
         This should be done using recursion.
         """
         pass  # TODO
+        # if visited is None initialize it
+        # print starting vertex
+        print(starting_vertex)
+
+        # grab neighbors
+        neighbors = self.get_neighbors(starting_vertex)
+        # if visited tracking set not passed and = None 
+        # initialize set
+        if visited is None:
+            visited = set()
+
+        # add current to visited set
+        visited.add(starting_vertex)
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                self.dft_recursive(neighbor, visited)
+
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -84,6 +129,7 @@ class Graph:
         breath-first order.
         """
         pass  # TODO
+        # 
 
     def dfs(self, starting_vertex, destination_vertex):
         """

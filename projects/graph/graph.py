@@ -41,10 +41,8 @@ class Graph:
         q = Queue()
         # enqueue our starting node
         q.enqueue(starting_vertex)
-​
         # make a set to track if we've been here before
         visited = set()
-​
         # while our queue isn't empty
         while q.size() > 0:
         ## dequeue whatever's at the front of our line, this is our current_node
@@ -71,28 +69,23 @@ class Graph:
         s= Stack()
         # push on our starting node
         s.push(starting_vertex)
-​
         # make a set to track if we've been here before
         visited = set()
-​
         # while our stack isn't empty
         while s.size() > 0:
-
-​
         ## pop off whatever's on top, this is current_node
-        v = s.pop()
-​
-        ## if we haven't visited this vertex before
-        if v  not in visited:
-        ### run function / print
-        print(v)
-        ### mark as visited
-        visited.add(v)
-        ### get its neighbors
-        neighbors = self.get_neighbors(v):
-        ### for each of the neighbors
-        for neighbor in neighbors:
-            s.push(neighbor)
+            v = s.pop()
+            ## if we haven't visited this vertex before
+            if v  not in visited:
+            ### run function / print
+                print(v)
+            ### mark as visited
+            visited.add(v)
+            ### get its neighbors
+            neighbors = self.get_neighbors(v)
+            ### for each of the neighbors
+            for neighbor in neighbors:
+                s.push(neighbor)
 
 
     def dft_recursive(self, starting_vertex, visited = None):
@@ -129,7 +122,7 @@ class Graph:
         breath-first order.
         """
         pass  # TODO
-        # 
+        
 
     def dfs(self, starting_vertex, destination_vertex):
         """

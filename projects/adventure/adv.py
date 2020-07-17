@@ -73,7 +73,7 @@ visited = {}
 
 
 # loop until total visited is equal to total rooms in world
-while len(visited) < len(world.rooms):
+while len(visited) < len(room_graph):
 
     # get the neighbors *** returns complete list 
     # will need to get rid of already visited directions later
@@ -168,62 +168,9 @@ while len(visited) < len(world.rooms):
 
 result = any('?' in d.values() for d in visited.values())
 print(result)
+print(visited)
 
 
-# def traversal_recursive(room = player.current_room, traversal_path = [], visited = {}):
-#     print("traversal_path")
-#     print(traversal_path)
-#     if len(visited) == len(world.rooms):
-#         return traversal_path
-
-#     exits = player.current_room.get_exits()
-#     path = []
-#     random.shuffle(exits)
-
-#     for exit in exits:
-#         next_room = player.current_room.get_room_in_direction(exit)
-
-#         if visited.get(player.current_room.id) == None:
-#             visited[player.current_room.id]= {}
-          
-#             for empty_exit in exits:
-#                 visited[player.current_room.id][empty_exit] = '?'
-#         if next_room.id not in visited:
-         
-#             path.append(exit)
-         
-            
-            
-#         if exit =='n':
-#             visited[player.current_room.id][exit] = next_room.id
-#         if exit =='s':
-#             visited[player.current_room.id][exit] = next_room.id
-#         if exit =='e':
-#             visited[player.current_room.id][exit] = next_room.id
-#         if exit =='w':
-#             visited[player.current_room.id][exit] = next_room.id
-
-#     if len(path) > 0:
-        
-#         step = len(path) -1
-#         directions.push(path[step])
-        
-
-#         traversal_path.append(path[step])
-#         traversal_recursive( player.travel(path[step]), traversal_path, visited)
-    
-#     else:
-#         dead_end = directions.pop()
-
-#         player.travel(move_backwards[dead_end])
-
-#         if len(visited) != len(world.rooms):
-#             traversal_path.append(move_backwards[dead_end])
-#         traversal_recursive(player.travel(move_backwards[dead_end]), traversal_path, visited)
-    
-    
-
-# traversal_path = traversal_recursive()
 
 
 
